@@ -36,12 +36,14 @@ class ListContacts extends Component {
 
     showingContacts.sort(sortBy('name'));
 
+    let urlPath = process.env.REACT_APP_CONTACTS_API_URL || 'localhost:5001';
+
     return (
       <div className='list-contacts'>
         <div className='list-contacts-top'>
           <input className='search-contacts'
             type='text'
-            placeholder='Search contacts'
+            placeholder='Search players'
             value={query}
             onChange={event => this.updateQuery(event.target.value)} />
 
@@ -62,7 +64,7 @@ class ListContacts extends Component {
           {showingContacts.map(contact =>
             <li key={contact.id} className='contact-list-item'>
               <div className='contact-avatar' style={{
-                backgroundImage: `url(${contact.avatarURL})`
+                backgroundImage: `url(${urlPath}${contact.avatarURL})`
               }} />
 
               <div className='contact-details'>
