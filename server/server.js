@@ -43,7 +43,8 @@ app.use((req, res, next) => {
 })
 
 app.get('/contacts', (req, res) => {
-  res.send(contacts.get(req.token))
+  var hostname = (req.connection.encrypted ? 'https' : 'http') + '://' + req.headers.host;
+  res.send(contacts.get(req.token, hostname))
 })
 
 app.delete('/contacts/:id', (req, res) => {

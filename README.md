@@ -17,9 +17,15 @@ Install,
  - npm
  - node
  - yarn (`npm install -g yarn`)
+
+ ## Starting server
+ 
  - change to server directory (`cd server`)
  - install dependencies (`yarn` or `npm install`)
  - run server (`node server`)
+
+ ## Starting client
+
  - change to client directory (`cd client`)
  - install dependencies (`yarn` or `npm install`)
  - start the client (`yarn start` or `npm run start`)

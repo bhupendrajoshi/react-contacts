@@ -62,12 +62,19 @@ const defaultData = {
   ]
 }
 
-const get = (token) => {
+const get = (token, hostname) => {
+  console.log(hostname);
   let data = db[token]
 
   if (data == null) {
     data = db[token] = clone(defaultData)
   }
+
+  data.contacts.forEach(d => {
+    if (!d.avatarURL.startsWith(hostname)) {
+      d.avatarURL = hostname + d.avatarURL;
+    }
+  })
 
   return data
 }
